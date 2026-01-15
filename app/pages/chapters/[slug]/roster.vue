@@ -10,23 +10,7 @@ import { useHead } from '#imports'
 const route = useRoute()
 const { $api } = useNuxtApp()
 
-useHead(() => {
-  if (!chapter.value) {
-    return {
-      title: 'Shrinathji Chapter Roster | V2VBN',
-    }
-  }
 
-  return {
-    title: `${chapter.value.name} Chapter Roster | V2VBN`,
-    meta: [
-      {
-        name: 'description',
-        content: `Official member roster of ${chapter.value.name} Chapter, V2VBN.`,
-      },
-    ],
-  }
-})
 
 /* ============================
    STATE
@@ -155,6 +139,25 @@ async function exportPDF() {
 
   pdf.save(`${chapter.value.name}-roster.pdf`)
 }
+
+
+useHead(() => {
+  if (!chapter.value) {
+    return {
+      title: 'Shrinathji Chapter Roster | V2VBN',
+    }
+  }
+
+  return {
+    title: `${chapter.value.name} Chapter Roster | V2VBN`,
+    meta: [
+      {
+        name: 'description',
+        content: `Official member roster of ${chapter.value.name} Chapter, V2VBN.`,
+      },
+    ],
+  }
+})
 
 </script>
 
